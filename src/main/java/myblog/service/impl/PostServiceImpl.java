@@ -7,6 +7,8 @@ import myblog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PostServiceImpl implements PostService {
 @Autowired
@@ -25,7 +27,7 @@ private PostRepository postRepository;
 
     @Override
     public Post detail(PostDto postDto) {
-
-        return null;
+        Post post = postRepository.findById(postDto.getId()).orElseThrow();
+        return post;
     }
 }
