@@ -22,4 +22,10 @@ private PostRepository postRepository;
         postDto.setId(post.getId());
         return postDto;
     }
+
+    @Override
+    public Post detail(PostDto postDto) {
+
+        return null;
+    }
 }

@@ -1,6 +1,7 @@
 package myblog.controller;
 
 
+import myblog.entity.Post;
 import myblog.payload.PostDto;
 import myblog.service.PostService;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,11 @@ public class PostController {
        return new ResponseEntity<>(dto, HttpStatus.CREATED);
   }
 
+    @PostMapping(value = "/detail")
+    public ResponseEntity<Post> detail(@RequestBody PostDto postDto ){
+        Post post =  postService.detail(postDto);
+        return new ResponseEntity<>(post, HttpStatus.CREATED);
+    }
 
 
 }
